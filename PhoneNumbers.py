@@ -8,6 +8,11 @@ class AlphaNumeric:
                           "5": ["J", "K", "L"], "6": ["M", "N", "O"],
                           "7": ["P", "Q", "R", "S"], "8": ["T", "U", "V"],
                           "9": ["W", "X", "Y", "Z"], "0": ["NIL"]}
+        self.alpha_num = {"A": "2", "B": "2", "C": "2", "D": "3", "E": "3", "F": "3",
+                          "G": "4", "H": "4", "I": "4", "J": "5", "K": "5", "L": "5",
+                          "M": "6", "N": "6", "O": "6", "P": "7", "Q": "7", "R": "7",
+                          "S": "7", "T": "8", "U": "8", "V": "8", "W": "9", "X": "9",
+                          "Y": "9", "Z": "9"}
         self.comb_dict = {}
         with open(lib_location, 'r') as lib_file:
             self.words = lib_file.read().splitlines()
@@ -36,9 +41,19 @@ class AlphaNumeric:
                                           each_comb + next_combs[2]))
                 self.comb_dict[counter + 1] = tuple(interim_combs)
             counter += 1
-        print(self.comb_dict[9])
+        return self.comb_dict[9]
+
+    def convert_alpha_to_num(self, number='985AHT7782'):
+        converted_num = ""
+        for each_char in number:
+            if each_char.isalpha():
+                converted_num += self.alpha_num[each_char]
+            else:
+                converted_num += each_char
+        return converted_num
 
 
 if "__main__":
     NumAlpha = AlphaNumeric()
-    NumAlpha.find_permutations_num_alpha()
+    print(NumAlpha.find_permutations_num_alpha())
+    print(NumAlpha.convert_alpha_to_num())

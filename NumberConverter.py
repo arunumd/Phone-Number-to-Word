@@ -35,14 +35,8 @@ def fracture_number(number='989592KJAB'):
     return [[x, y] for x, y in combinations(range(length), r=2)]
 
 
-def get_good_prospects(combs=None):
-    if combs is None:
-        combs = ([1, 2], [5, 6])
-    good_prospects = []
-    for each_interval in combs:
-        if each_interval[1] - each_interval[0] > 2:
-            good_prospects.append(each_interval)
-    return good_prospects
+def get_good_prospects(combs=([1, 2], [5, 6])):
+    return [[num[0], num[1]] for num in combs if num[1] - num[0] > 2]
 
 
 if '__main__':

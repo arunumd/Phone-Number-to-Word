@@ -6,6 +6,7 @@ import time
 
 class AlphaNumeric:
     def __init__(self, phone_number='9883642228'):
+        self.phone_number = phone_number
         self.num_alpha = {"1": ["NIL"], "2": ["A", "B", "C"],
                           "3": ["D", "E", "F"], "4": ["G", "H", "I"],
                           "5": ["J", "K", "L"], "6": ["M", "N", "O"],
@@ -20,25 +21,25 @@ class AlphaNumeric:
         self.valid_numbers = {}
         self.words = enchant.Dict("en_US")
 
-    def find_permutations_num_alpha(self, number='9883642228'):
+    def find_permutations_num_alpha(self):
         counter = 0
         interim_combs = []
-        if self.num_alpha[number[0]] is "NIL":
-            interim_combs.append(number[0])
+        if self.num_alpha[self.phone_number[0]] is "NIL":
+            interim_combs.append(self.phone_number[0])
         else:
-            for each_alpha in self.num_alpha[number[0]]:
+            for each_alpha in self.num_alpha[self.phone_number[0]]:
                 interim_combs.append(each_alpha)
         self.comb_dict[counter] = tuple(interim_combs)
-        while counter < len(number) - 1:
+        while counter < len(self.phone_number) - 1:
             interim_combs.clear()
             temp_combs = list(self.comb_dict[counter])
             for each_comb in temp_combs:
-                next_combs = self.num_alpha[number[counter + 1]]
-                if number[counter + 1] == "7" or number[counter + 1] == "9":
+                next_combs = self.num_alpha[self.phone_number[counter + 1]]
+                if self.phone_number[counter + 1] == "7" or self.phone_number[counter + 1] == "9":
                     interim_combs.extend((each_comb + next_combs[0], each_comb + next_combs[1],
                                           each_comb + next_combs[2], each_comb + next_combs[3]))
-                elif number[counter + 1] == "1" or number[counter + 1] == "0":
-                    interim_combs.append(each_comb + number[counter + 1])
+                elif self.phone_number[counter + 1] == "1" or self.phone_number[counter + 1] == "0":
+                    interim_combs.append(each_comb + self.phone_number[counter + 1])
                 else:
                     interim_combs.extend((each_comb + next_combs[0], each_comb + next_combs[1],
                                           each_comb + next_combs[2]))
@@ -46,24 +47,27 @@ class AlphaNumeric:
             counter += 1
         return self.comb_dict[9]
 
-    def convert_alpha_to_num(self, number='985AHT7782'):
+    def convert_alpha_to_num(self):
         converted_num = ""
-        for each_char in number:
+        for each_char in self.phone_number:
             if each_char.isalpha():
                 converted_num += self.alpha_num[each_char]
             else:
                 converted_num += each_char
         return converted_num
 
-    def accumulate_valid_numbers(self, num_range=(6, 10), original_num='9883642228'):
+    def accumulate_valid_numbers(self, num_range=(6, 10)):
         temp_set = set()
         for each_word in self.comb_dict[9]:
             temp_set.add(str(each_word[num_range[0]: num_range[1]]).lower())
         unique_set = set()
         for unique_name in temp_set:
             if self.words.check(unique_name):
-                unique_set.add(original_num[0:num_range[0]] + unique_name.upper() + original_num[num_range[1]:])
-            self.valid_numbers[num_range] = unique_set
+                unique_set.add(self.phone_number[:num_range[0]] + unique_name.upper() +
+                               self.phone_number[num_range[1]:])
+        if unique_set == set():
+            unique_set.add("NIL")
+        self.valid_numbers[num_range] = unique_set
 
     def print_all_combinations(self):
         pprint.pprint(self.valid_numbers)

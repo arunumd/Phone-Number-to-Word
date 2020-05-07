@@ -15,7 +15,7 @@ devices (mobile phones and landlines) come with alphabets corresponding to numbe
 correspond to the number `2`. Similarly the alphabets `P, Q, R, S` correspond to the number `7`. 
 
 Thus if we are given a number `72227727`, there could be many ways we can generate words from this sequence.
-The following sre some possibilities :
+The following are some possibilities :
 - `PBACRQAS`
 - `QCABSPCP`
 - `SAAAPRAQ`
@@ -37,7 +37,7 @@ purposes (listed below corresponding to the function names in the same sequence)
 - `all_wordifications` - returns a list of all possible alpha-numeric US phone numbers with valid English words. The input is
 a US phone number in all-numeric format passed in as a string
 
-- `number_to_words` - returns exactly one alpha-numeric phone number with valid English word in it. The input parameter is 
+- `number_to_words` - returns exactly one alpha-numeric phone number with a valid English word in it. The input parameter is 
 a US phone number in all-numeric format passed in as a string
 
 - `words_to_number` - returns an all-numeric US phone number corresponding to an input alpha-numeric US phone number. The input

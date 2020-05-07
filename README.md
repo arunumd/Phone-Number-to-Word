@@ -28,8 +28,8 @@ embedded in it.
 So, the primary goal of this project is to identify all those output sequences which have meaningful English words and 
 discard the remaining.
 
-Thus out meaningful output phone number in the alpha-numeric format would be `7CAB7727`. We arrived at this number by retaining
-`CAB` and patching up for the missing segments from the input phone number `72227727`.
+Thus our meaningful output phone number in the alpha-numeric format would be `7CAB7727`. We arrived at this number by retaining
+`CAB` from `QCABSPCP` and patching up for the missing segments from the input phone number `72227727`.
 
 ## Functions usage
 The module *NumberConverter.py* has the functions `all_wordifications`, `number_to_words` and `words_to_number` for the following

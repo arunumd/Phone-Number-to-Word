@@ -1,12 +1,18 @@
 #!/usr/bin/env python3
-import re
+# -*- coding: utf-8 -*-
+
+"""
+User interaction module for conversion between US phone numbers in alpha-numeric format and numeric format.
+The module also has many helper functions for performing sanity checks on the user inputs.
+"""
+import re   # standard library
 import random
 import logging
 import threading
 import concurrent.futures
 from itertools import combinations
 
-from PhoneNumbers import AlphaNumeric
+from PhoneNumbers import AlphaNumeric   # local module
 
 
 def convert_to_alpha_num(number='984ABC&/]?786'):

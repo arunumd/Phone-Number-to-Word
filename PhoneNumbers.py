@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
-import enchant
-from collections import deque
+# -*- coding: utf-8 -*-
+
+"""
+Class for conversion between US phone numbers and meaningful English words.
+The forward conversion from numbers to words is done using dynamic programming.
+The backward conversion is done by using a simple lookup table.
+"""
+import enchant   # 3rd party English language dictionary
+from collections import deque   # standard library
 
 
 class AlphaNumeric:

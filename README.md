@@ -1,5 +1,5 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# Phone-Number-to-Text
+# Phone-Number-to-Word
 This repository contains simple functions for converting between phone numbers and alpha numeric encoding
 
 ## About the Author

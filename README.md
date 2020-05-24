@@ -1,6 +1,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 # Phone-Number-to-Word
-This repository contains simple functions for converting between phone numbers and alpha numeric encoding
+This repository contains simple functions for conversion between phone numbers and alpha numeric encoding. The encoding comprises of a combination of meaningful a English word and numbers. The algorithm first generates all permutations and combinations of words irrespective of whether or not they may be meaningful words. The words generation is done using Dynamic Programming (DP) algorithm, wherein a whole input phone number is converted into many sequences of all possible permutations and combinations first. Later, the generated sequences are fractured into all possible subsets of words. Later,the generated subset of words are filtered by cross checking with an English dictionary, by multiple Python threads. Finally, only those subset of words which are present in the dictionary are retained and the new phone number is reconstructed by patching up for the remaining segments from the input phone number.
+
+The conversion from alpha-numeric phone number to all numerics is done very easily, by looking up at an alphabets to numbers mapping table.
 
 ## About the Author
 Arun Kumar Devarajulu is a Robotics Software developer with interests in Computer Vision, Machine Learning, and Motion Planning. 
